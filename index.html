@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Portfolio | SOMYA ASATI</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; color: #333; }
+
+    /* NAV */
+    nav {
+      background: #1a1a2e;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+    }
+    nav .logo { color: #e94560; font-size: 22px; font-weight: bold; }
+    nav ul { list-style: none; display: flex; gap: 25px; }
+    nav ul li a { color: #fff; text-decoration: none; font-size: 15px; }
+    nav ul li a:hover { color: #e94560; }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #1a1a2e, #16213e);
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
+    }
+    .hero img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 4px solid #e94560;
+      object-fit: cover;
+      margin-bottom: 20px;
+    }
+    .hero h1 { font-size: 42px; margin-bottom: 10px; }
+    .hero h1 span { color: #e94560; }
+    .hero p { font-size: 18px; color: #aaa; margin-bottom: 25px; }
+    .hero a.btn {
+      background: #e94560;
+      color: white;
+      padding: 12px 30px;
+      text-decoration: none;
+      border-radius: 25px;
+      font-size: 16px;
+      margin: 5px;
+      display: inline-block;
+    }
+    .hero a.btn:hover { background: #c73652; }
+    .hero a.btn-outline {
+      background: transparent;
+      border: 2px solid #e94560;
+    }
+    .hero a.btn-outline:hover { background: #e94560; }
+
+    /* SECTION BASE */
+    section { padding: 70px 60px; }
+    section h2 {
+      font-size: 32px;
+      text-align: center;
+      margin-bottom: 40px;
+      color: #1a1a2e;
+    }
+    section h2 span { color: #e94560; }
+
+    /* ABOUT */
+    .about { background: #f9f9f9; }
+    .about-content { display: flex; gap: 40px; align-items: center; flex-wrap: wrap; justify-content: center; }
+    .about-content img { width: 250px; border-radius: 10px; border: 3px solid #e94560; }
+    .about-text { max-width: 500px; }
+    .about-text p { font-size: 16px; line-height: 1.8; color: #555; margin-bottom: 15px; }
+
+    /* SKILLS */
+    .skills { background: #fff; }
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .skill-card {
+      background: #1a1a2e;
+      color: white;
+      padding: 20px 30px;
+      border-radius: 10px;
+      text-align: center;
+      min-width: 140px;
+    }
+    .skill-card p { font-size: 15px; margin-top: 8px; color: #aaa; }
+    .skill-card .icon { font-size: 36px; }
+
+    /* PROJECTS */
+    .projects { background: #f9f9f9; }
+    .projects-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+      justify-content: center;
+    }
+    .project-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      width: 300px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      transition: transform 0.2s;
+    }
+    .project-card:hover { transform: translateY(-5px); }
+    .project-card img { width: 100%; height: 170px; object-fit: cover; }
+    .project-info { padding: 18px; }
+    .project-info h3 { font-size: 18px; margin-bottom: 8px; color: #1a1a2e; }
+    .project-info p { font-size: 14px; color: #777; line-height: 1.6; margin-bottom: 12px; }
+    .project-info a {
+      color: #e94560;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    /* CONTACT */
+    .contact { background: #1a1a2e; color: white; text-align: center; }
+    .contact h2 span { color: #e94560; }
+    .contact p { color: #aaa; font-size: 16px; margin-bottom: 30px; }
+    .contact-links { display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; }
+    .contact-links a {
+      background: #e94560;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 15px;
+    }
+    .contact-links a:hover { background: #c73652; }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #111;
+      color: #666;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="logo">&lt; /&gt;</div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <img src="PROFILE PHOTO.jpeg" alt="Profile Photo" />
+    <h1>Hi, I'm <span>Somya Asati</span> 👋</h1>
+    <p>Aspiring Web Developer | HTML Enthusiast |Cyber Security enthusiast| Open to Opportunities</p>
+    <a href="#projects" class="btn">View My Work</a>
+    <a href="#contact" class="btn btn-outline">Contact Me</a>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <h2>About <span>Me</span></h2>
+    <div class="about-content">
+      <img src="profilephoto2.jpeg" alt="About Me" />
+      <div class="about-text">
+        <p>
+          Hello! I'm a passionate learner currently mastering web development.
+          I recently completed the <strong>Comprehensive Course in html</strong>
+          and built this portfolio to showcase my skills.
+        </p>
+        <p>
+          I love building clean and structured web pages. I am focused on
+          learning CSS and JavaScript next to make my projects interactive and beautiful.
+        </p>
+        <p>📍 India &nbsp;|&nbsp; 🎓 Student &nbsp;|&nbsp; 💡 Curious Learner</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="skills" id="skills">
+    <h2>My <span>Skills</span></h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="icon">🌐</div>
+        <strong>HTML5</strong>
+        <p>Semantic Tags, Forms, Tables, Media</p>
+      </div>
+      <div class="skill-card">
+        <div class="icon">🎨</div>
+        <strong>CSS3</strong>
+        <p>Flexbox, Grid, Animations (Learning)</p>
+      </div>
+      <div class="skill-card">
+        <div class="icon">⚡</div>
+        <strong>JavaScript</strong>
+        <p>Basics (Coming Soon)</p>
+      </div>
+      <div class="skill-card">
+        <div class="icon">🐙</div>
+        <strong>Git & GitHub</strong>
+        <p>Version Control, Repositories</p>
+      </div>
+      <div class="skill-card">
+        <div class="icon">💻</div>
+        <strong>VS Code</strong>
+        <p>Code Editor & Extensions</p>
+      </div>
+      <div class="skill-card">
+        <div class="icon">💻</div>
+        <strong>python</strong>
+        <p>Code Editor & Extensions</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="projects" id="projects">
+    <h2>My <span>Projects</span></h2>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <div class="project-info">
+          <h3>📋 Registration Form</h3>
+          <p>A fully functional HTML registration form with all input types — text, email, radio, checkbox, and dropdown.</p>
+          <a href="registrationform.html">View Project →</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-info">
+          <h3>📊 HTML Tables Project</h3>
+          <p>A student result card built entirely using HTML tables with proper headers, rows, and formatting.</p>
+          <a href="resultcard.html">View Project →</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-info">
+          <h3>🍕 Food Menu Page</h3>
+          <p>A restaurant-style food menu page using lists, images, semantic HTML tags, and anchor links.</p>
+          <a href="foodmenu.html">View Project →</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-info">
+          <h3>🎬 Cinema Vault</h3>
+          <p>Movie ticket booking and food ordering project using python.</p>
+          <a href="https://github.com/somyaasati12-del/CinemaVault">View Project →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <h2><span>Get In Touch</span></h2>
+    <p>I'm open to learning opportunities, collaborations, and internships!</p>
+    <div class="contact-links">
+      <a href="mailto:somyaasati12@gmail.com">📧 Email Me</a>
+      <a href="https://github.com/somyaasati12-del" target="_blank">🐙 GitHub</a>
+      <a href="https://www.linkedin.com/in/somya-asati/" target="_blank">💼 LinkedIn</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Made with ❤️ using HTML | &copy; 2026 SOMYA ASATI</p>
+  </footer>
+
+</body>
+</html>
