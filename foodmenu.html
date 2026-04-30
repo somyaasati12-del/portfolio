@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FOOD THEORY 🍛 | Restaurant Menu</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; background: #fffdf8; color: #333; }
+
+    /* NAV */
+    nav {
+      background: #8b1a1a;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo { color: #f5c518; font-size: 24px; font-weight: bold; }
+    nav ul { list-style: none; display: flex; gap: 20px; }
+    nav ul li a { color: #fff; text-decoration: none; font-size: 14px; }
+    nav ul li a:hover { color: #f5c518; }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+                  url('https://img.freepik.com/premium-photo/food-background_970765-7559.jpg') center/cover;
+      background-color: #8b1a1a;
+      text-align: center;
+      padding: 80px 20px;
+      color: white;
+    }
+    .hero h1 { font-size: 46px; color: #f5c518; }
+    .hero p { font-size: 18px; color: #ddd; margin-top: 10px; }
+    .hero .tagline { font-size: 14px; color: #aaa; margin-top: 6px; font-style: italic; }
+    .hero .info { margin-top: 20px; display: flex; justify-content: center; gap: 30px; font-size: 14px; }
+    .hero .info span { background: rgba(255,255,255,0.1); padding: 6px 16px; border-radius: 20px; }
+
+    /* CATEGORY TABS */
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      padding: 25px 20px;
+      background: #fff;
+      flex-wrap: wrap;
+      border-bottom: 2px solid #eee;
+      position: sticky;
+      top: 55px;
+      z-index: 99;
+    }
+    .tabs a {
+      text-decoration: none;
+      color: #8b1a1a;
+      border: 2px solid #8b1a1a;
+      padding: 8px 20px;
+      border-radius: 25px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+    .tabs a:hover { background: #8b1a1a; color: white; }
+
+    /* SECTION */
+    .menu-section { padding: 50px 60px; }
+    .menu-section h2 {
+      font-size: 28px;
+      color: #8b1a1a;
+      border-bottom: 3px solid #f5c518;
+      display: inline-block;
+      padding-bottom: 5px;
+      margin-bottom: 30px;
+    }
+
+    /* MENU GRID */
+    .menu-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+    }
+    .menu-item {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      width: 260px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      border: 1px solid #f0e8d5;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .menu-item:hover { transform: translateY(-4px); box-shadow: 0 8px 25px rgba(139,26,26,0.15); }
+    .menu-item img { width: 100%; height: 180px; object-fit: cover; }
+    .item-body { padding: 15px; }
+    .item-body h3 { font-size: 16px; color: #222; margin-bottom: 5px; }
+    .item-body p { font-size: 13px; color: #888; line-height: 1.5; margin-bottom: 10px; }
+
+    .item-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 15px;
+      background: #fff9f0;
+      border-top: 1px solid #f0e8d5;
+    }
+    .price { font-size: 17px; font-weight: bold; color: #8b1a1a; }
+    .add-btn {
+      background: #8b1a1a;
+      color: white;
+      border: none;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 13px;
+      cursor: pointer;
+    }
+    .add-btn:hover { background: #6e1414; }
+
+    /* BADGES */
+    .badge-wrap { display: flex; gap: 5px; margin-bottom: 8px; }
+    .badge {
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+    .veg { background: #e8f5e9; color: #2e7d32; border: 1px solid #81c784; }
+    .non-veg { background: #fce4ec; color: #c62828; border: 1px solid #ef9a9a; }
+    .spicy { background: #fff3e0; color: #e65100; border: 1px solid #ffb74d; }
+    .bestseller { background: #f5c518; color: #222; }
+
+    /* OFFER BANNER */
+    .offer-banner {
+      background: linear-gradient(135deg, #8b1a1a, #c0392b);
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin: 0 60px 40px;
+      border-radius: 12px;
+    }
+    .offer-banner h3 { font-size: 20px; }
+    .offer-banner p { font-size: 14px; color: #ffc; margin-top: 5px; }
+
+    /* FOOTER */
+    footer {
+      background: #8b1a1a;
+      color: #ccc;
+      text-align: center;
+      padding: 25px;
+      font-size: 14px;
+    }
+    footer address { font-style: normal; margin-top: 8px; color: #f5c518; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">🍛 Food Theory</div>
+    <ul>
+      <li><a href="#starters">Starters</a></li>
+      <li><a href="#mains">Main Course</a></li>
+      <li><a href="#breads">Breads</a></li>
+      <li><a href="#desserts">Desserts</a></li>
+      <li><a href="#drinks">Drinks</a></li>
+    </ul>
+  </nav>
+
+  <div class="hero">
+    <h1>🍛 Food Theory</h1>
+    <p>Authentic Indian Cuisine — Crafted with Love</p>
+    <p class="tagline">"Where every bite tells a story"</p>
+    <div class="info">
+      <span>⏰ Open: 11AM – 11PM</span>
+      <span>📍 Jabalpur Naka,Damoh</span>
+      <span>📞 +91 98765 00000</span>
+      <span>⭐ 4.7 / 5 Rating</span>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <a href="#starters">🥗 Starters</a>
+    <a href="#mains">🍛 Main Course</a>
+    <a href="#breads">🫓 Breads</a>
+    <a href="#desserts">🍮 Desserts</a>
+    <a href="#drinks">🥤 Drinks</a>
+  </div>
+
+  <!-- OFFER BANNER -->
+  <div class="offer-banner" style="margin-top:40px;">
+    <h3>🎉 Today's Special: 20% OFF on all orders above ₹500!</h3>
+    <p>Use code: <strong>SPICE20</strong> &nbsp;|&nbsp; Valid till midnight</p>
+  </div>
+
+  <!-- STARTERS -->
+  <section class="menu-section" id="starters">
+    <h2>🥗 Starters</h2>
+    <div class="menu-grid">
+
+      <div class="menu-item">
+        <img src="https://vegecravings.com/wp-content/uploads/2017/03/Aloo-Samosa-Recipe-Step-By-Step-Instructions.jpg" alt="Samosa"/>
+        <div class="item-body">
+          <div class="badge-wrap">
+            <span class="badge veg">🟢 Veg</span>
+            <span class="badge bestseller">⭐ Bestseller</span>
+          </div>
+          <h3>Crispy Samosa (2 pcs)</h3>
+          <p>Golden fried pastry filled with spiced potato and peas. Served with mint chutney.</p>
+        </div>
+        <div class="item-footer">
+          <span class="price">₹80</span>
+          <button class="add-btn">+ Add</button>
+        </div>
+      </div>
+
+      <div class="menu-item">
+        <img src="https://tse2.mm.bing.net/th/id/OIP.HrAP40HxwPvr1d9r0m4KHgHaHa?pid=Api&P=0&h=180" alt="Tikka"/>
+        <div class="item-body">
+          <div class="badge-wrap">
+            <span class="badge non-veg">🔴 Non-Veg</span>
+            <span class="badge spicy">🌶️ Spicy</span>
+          </div>
+          <h3>Chicken Tikka</h3>
+          <p>Marinated chicken chunks grilled in tandoor. Served with onion rings and chutney.</p>
+        </div>
+        <div class="item-footer">
+          <span class="price">₹280</span>
+          <button class="add-btn">+ Add</button>
+        </div>
+      </div>
+
+      <div class="menu-item">
+        <img src="https://tse1.mm.bing.net/th/id/OIP.LAOySNHnzA6Ndqw2tFbiIwHaHa?pid=Api&P=0&h=180" alt="Paneer Tikka"/>
+        <div class="item-body">
+          <div class="badge-wrap">
+            <span class="badge veg">🟢 Veg</span>
+            <span class="badge spicy">🌶️ Spicy</span>
+          </div>
+          <h3>Paneer Tikka</h3>
+          <p>Soft paneer marinated with spices, grilled to perfection. A vegetarian delight!</p>
+        </div>
+        <div class="item-footer">
+          <span class="price">₹220</span>
+          <button class="add-btn">+ Add</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MAIN COURSE -->
+  <section class="menu-section" id="mains" style="background:#fff9f0">
+    <h2>🍛 Main Course</h2>
+    <div class="menu-grid">
+
+      <div class="menu-item">
+        <img src="https://www.licious.in/blog/wp-content/uploads/2020/10/butter-chicken-.jpg" alt="Butter Chicken"/>
+        <div class="item-body">
+          <div class="badge-wrap">
+            <span class="badge non-veg">🔴 Non-Veg</span>
+            <span class="badge bestseller">⭐ Bestseller</span>
+          </div>
+          <h3>Butter Chicken</h3>
+          <p>Tender chicken in creamy tomato-based sauce with aromatic Indian spices.</p>
+        </div>
+        <div class="item-footer">
+          <span class="price">₹350</span>
+          <button class="add-btn">+ Add</button>
+        </div>
+      </div>
+
+      <div class="menu-item">
+        <img src="https://myfoodstory.com/wp-content/uploads/2018/08/Dal-Makhani-New-4.jpg?fit=1200,9999" alt="Dal Makhani"/>
+        <div class="item-body">
+          <div class="badge-wrap">
+            <span class="badge veg">🟢 Veg</span>
+            <span class="badge bestseller">⭐ Bestseller</span>
+          </div>
+          <h3>Dal Makhani</h3>
+          <p>Slow-cooked black lentils in rich buttery gravy. A classic Punjabi staple.</p>
+        </div>
+        <div class="item-footer">
+          <span class="price">₹220</span>
+          <button class="add-btn">+ Add</button>
+        </div>
+      </div>
+
+      <div class="menu-item">
+        <img src="https://tse2.mm.bing.net/th/id/OIP.dhwVwfaB6I2qUQg_iXHwKQHaHa?pid=Api&P=0&h=180" alt="Shahi Paneer"/>
+        <div class="item-body">
+          <div class="badge-wrap">
+            <span class="badge veg">🟢 Veg</span>
+            <span class="badge bestseller">⭐ Bestseller</span>
+          </div>
+          <h3>Shahi Paneer</h3>
+          <p>Slow-cooked paneer in rich, creamy gravy. A luxurious vegetarian delight.</p>
+        </div>
+        <div class="item-footer">
+          <span class="price">₹180</span>
+          <button class="add-btn">+ Add</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BREADS -->
+  <section class="menu-section" id="breads">
+    <h2>🫓 Breads</h2>
+    <div class="menu-grid">
+      <div class="menu-item">
+        <img src="https://www.budgetbytes.com/wp-content/uploads/2015/12/Homemade-Naan-Overhead.jpg" alt="Naan"/>
+        <div class="item-body">
+          <div class="badge-wrap"><span class="badge veg">🟢 Veg</span></div>
+          <h3>Garlic Naan</h3>
+          <p>Tandoor-baked flatbread with garlic and butter topping. Soft and fluffy inside.</p>
+        </div>
+        <div class="item-footer"><span class="price">₹60</span><button class="add-btn">+ Add</button></div>
+      </div>
+      <div class="menu-item">
+        <img src="https://pipingpotcurry.com/wp-content/uploads/2022/11/Aloo-ka-Paratha-Recipe-Piping-Pot-Curry.jpg" alt="Paratha"/>
+        <div class="item-body">
+          <div class="badge-wrap"><span class="badge veg">🟢 Veg</span></div>
+          <h3>Aloo Paratha</h3>
+          <p>Whole wheat bread stuffed with spiced mashed potato. Served with curd and pickle.</p>
+        </div>
+        <div class="item-footer"><span class="price">₹90</span><button class="add-btn">+ Add</button></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DESSERTS -->
+  <section class="menu-section" id="desserts" style="background:#fff9f0">
+    <h2>🍮 Desserts</h2>
+    <div class="menu-grid">
+      <div class="menu-item">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp1iYtqD7eN8oSjsCKlD_3YoyQsbMAzsIYtIwlT-k-WWJpSzcN9ECR23Gusest-BYj_ooX4at4Xx42JMsaf3fHoEO5-qkBNKf1EsVNGkNizQ&s=10" alt="Gulab Jamun"/>
+        <div class="item-body">
+          <div class="badge-wrap"><span class="badge veg">🟢 Veg</span><span class="badge bestseller">⭐ Bestseller</span></div>
+          <h3>Gulab Jamun (2 pcs)</h3>
+          <p>Soft milk-solid balls soaked in rose-flavored sugar syrup. Served warm.</p>
+        </div>
+        <div class="item-footer"><span class="price">₹100</span><button class="add-btn">+ Add</button></div>
+      </div>
+      <div class="menu-item">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSg2DOxmM7GAi-_ofIzVzdclAkDoFwkwcV8COHxr61htzcdpZVTHKFh8RJag-8LrWM-SJJSU1gRMjT8QeZcwRLyTumJQD83fP2AWmcMzjxylQ&s=10" alt="Kheer"/>
+        <div class="item-body">
+          <div class="badge-wrap"><span class="badge veg">🟢 Veg</span></div>
+          <h3>Rice Kheer</h3>
+          <p>Creamy rice pudding simmered in milk, cardamom, and topped with dry fruits.</p>
+        </div>
+        <div class="item-footer"><span class="price">₹120</span><button class="add-btn">+ Add</button></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DRINKS -->
+  <section class="menu-section" id="drinks">
+    <h2>🥤 Drinks</h2>
+    <div class="menu-grid">
+      <div class="menu-item">
+        <img src="https://instamart-media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_960,w_960//InstamartAssets/lassi.webp?updatedAt=1727160757587" alt="Lassi"/>
+        <div class="item-body">
+          <div class="badge-wrap"><span class="badge veg">🟢 Veg</span></div>
+          <h3>Sweet Lassi</h3>
+          <p>Chilled blended yogurt drink, slightly sweetened. Perfect to cool off spice!</p>
+        </div>
+        <div class="item-footer"><span class="price">₹80</span><button class="add-btn">+ Add</button></div>
+      </div>
+      <div class="menu-item">
+        <img src="https://moonrice.net/wp-content/uploads/2022/10/Chai.jpg" alt="Chai"/>
+        <div class="item-body">
+          <div class="badge-wrap"><span class="badge veg">🟢 Veg</span></div>
+          <h3>Masala Chai</h3>
+          <p>Hot spiced Indian tea brewed with ginger, cardamom, and fresh milk. A classic!</p>
+        </div>
+        <div class="item-footer"><span class="price">₹40</span><button class="add-btn">+ Add</button></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>🍛 <strong>Food Theory Restaurant</strong> | Made with HTML for Portfolio</p>
+    <address>📍 12 Near Stadium,Jabalpur Naka,Damoh | ☎️ +91 98765 00000</address>
+    <p style="margin-top:10px; font-size:12px;">Built during HTML Course &copy; 2026</p>
+  </footer>
+
+</body>
+</html>
