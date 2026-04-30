@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Result Card</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f4f8;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 40px 20px;
+    }
+    .card {
+      background: white;
+      max-width: 750px;
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    }
+
+    /* HEADER */
+    .card-header {
+      background: linear-gradient(135deg, #1a1a2e, #16213e);
+      color: white;
+      text-align: center;
+      padding: 30px;
+    }
+    .card-header h1 { font-size: 22px; letter-spacing: 2px; }
+    .card-header p { color: #aaa; font-size: 13px; margin-top: 4px; }
+    .school-logo {
+      width: 70px;
+      height: 70px;
+      background: #e94560;
+      border-radius: 50%;
+      margin: 0 auto 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+    }
+
+    /* STUDENT INFO */
+    .student-info {
+      padding: 20px 30px;
+      background: #f9f9f9;
+      border-bottom: 2px solid #eee;
+    }
+    .student-info table { width: 100%; border-collapse: collapse; }
+    .student-info td { padding: 7px 10px; font-size: 14px; color: #444; }
+    .student-info td:first-child { font-weight: bold; color: #222; width: 40%; }
+
+    /* MARKS TABLE */
+    .marks-section { padding: 25px 30px; }
+    .marks-section h3 { font-size: 16px; color: #1a1a2e; margin-bottom: 15px; border-left: 4px solid #e94560; padding-left: 10px; }
+
+    table.marks {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    table.marks thead { background: #1a1a2e; color: white; }
+    table.marks thead th { padding: 12px 15px; text-align: left; }
+    table.marks tbody tr { border-bottom: 1px solid #eee; }
+    table.marks tbody tr:nth-child(even) { background: #f9f9f9; }
+    table.marks tbody td { padding: 11px 15px; color: #444; }
+    table.marks tfoot { background: #f0f4f8; font-weight: bold; }
+    table.marks tfoot td { padding: 12px 15px; color: #1a1a2e; }
+
+    .grade-A { color: #27ae60; font-weight: bold; }
+    .grade-B { color: #2980b9; font-weight: bold; }
+    .grade-C { color: #f39c12; font-weight: bold; }
+    .grade-F { color: #e74c3c; font-weight: bold; }
+
+    /* RESULT BANNER */
+    .result-banner {
+      margin: 20px 30px 30px;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .result-pass { background: #d4edda; border: 2px solid #27ae60; }
+    .result-fail { background: #f8d7da; border: 2px solid #e74c3c; }
+    .result-banner h2 { font-size: 22px; }
+    .result-pass h2 { color: #27ae60; }
+    .result-fail h2 { color: #e74c3c; }
+    .result-banner p { font-size: 14px; color: #666; margin-top: 5px; }
+
+    /* PERCENTAGE BAR */
+    .progress-bar-wrap { margin: 5px 0; }
+    .progress-bar {
+      height: 8px;
+      background: #e0e0e0;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      border-radius: 4px;
+      background: linear-gradient(90deg, #e94560, #ff6b6b);
+      transition: width 0.5s;
+    }
+
+    /* FOOTER */
+    .card-footer {
+      background: #1a1a2e;
+      color: #888;
+      text-align: center;
+      padding: 15px;
+      font-size: 13px;
+    }
+
+    @media print {
+      body { background: white; }
+      .card { box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+
+    <!-- HEADER -->
+    <div class="card-header">
+      <div class="school-logo">🏫</div>
+      <h1>DOEL PUBLIC SCHOOL</h1>
+      <p>Affiliated to CBSE | Damoh, Madhya Pradesh, India</p>
+      <p style="margin-top: 10px; font-size: 14px; color: #e94560;">📋 Annual Examination Result — 2025-26</p>
+    </div>
+
+    <!-- STUDENT INFO -->
+    <div class="student-info">
+      <table>
+        <tr>
+          <td>Student Name</td>
+          <td>Rahul Sharma</td>
+          <td>Roll No.</td>
+          <td>DPS-2025-042</td>
+        </tr>
+        <tr>
+          <td>Class / Section</td>
+          <td>10th — A</td>
+          <td>Exam Date</td>
+          <td>March 2025</td>
+        </tr>
+        <tr>
+          <td>Father's Name</td>
+          <td>Suresh Sharma</td>
+          <td>Mother's Name</td>
+          <td>Priya Sharma</td>
+        </tr>
+        <tr>
+          <td>Date of Birth</td>
+          <td>12 August 2009</td>
+          <td>Contact</td>
+          <td>+91 98765 43210</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- MARKS TABLE -->
+    <div class="marks-section">
+      <h3>📊 Subject-wise Score</h3>
+      <table class="marks">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Subject</th>
+            <th>Max Marks</th>
+            <th>Marks Obtained</th>
+            <th>Percentage</th>
+            <th>Grade</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Mathematics</td>
+            <td>100</td>
+            <td>92</td>
+            <td>
+              92%
+              <div class="progress-bar-wrap">
+                <div class="progress-bar"><div class="progress-fill" style="width:92%"></div></div>
+              </div>
+            </td>
+            <td class="grade-A">A+</td>
+            <td>✅ Pass</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Science</td>
+            <td>100</td>
+            <td>85</td>
+            <td>
+              85%
+              <div class="progress-bar-wrap">
+                <div class="progress-bar"><div class="progress-fill" style="width:85%"></div></div>
+              </div>
+            </td>
+            <td class="grade-A">A</td>
+            <td>✅ Pass</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>English</td>
+            <td>100</td>
+            <td>78</td>
+            <td>
+              78%
+              <div class="progress-bar-wrap">
+                <div class="progress-bar"><div class="progress-fill" style="width:78%"></div></div>
+              </div>
+            </td>
+            <td class="grade-B">B+</td>
+            <td>✅ Pass</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Social Science</td>
+            <td>100</td>
+            <td>74</td>
+            <td>
+              74%
+              <div class="progress-bar-wrap">
+                <div class="progress-bar"><div class="progress-fill" style="width:74%"></div></div>
+              </div>
+            </td>
+            <td class="grade-B">B</td>
+            <td>✅ Pass</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Hindi</td>
+            <td>100</td>
+            <td>88</td>
+            <td>
+              88%
+              <div class="progress-bar-wrap">
+                <div class="progress-bar"><div class="progress-fill" style="width:88%"></div></div>
+              </div>
+            </td>
+            <td class="grade-A">A</td>
+            <td>✅ Pass</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>Computer Science</td>
+            <td>100</td>
+            <td>95</td>
+            <td>
+              95%
+              <div class="progress-bar-wrap">
+                <div class="progress-bar"><div class="progress-fill" style="width:95%"></div></div>
+              </div>
+            </td>
+            <td class="grade-A">A+</td>
+            <td>✅ Pass</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="2">📌 Total</td>
+            <td>600</td>
+            <td>512</td>
+            <td colspan="3">Overall: <span style="color:#e94560">85.3%</span> &nbsp;|&nbsp; Rank in Class: <span style="color:#e94560">#3</span></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+
+    <!-- RESULT -->
+    <div class="result-banner result-pass">
+      <h2>🎉 RESULT: PASS</h2>
+      <p>Congratulations Rahul! You have successfully passed with Distinction.</p>
+      <p style="margin-top:8px;">Total: <strong>512 / 600</strong> &nbsp;|&nbsp; Percentage: <strong>85.3%</strong> &nbsp;|&nbsp; Grade: <strong>A</strong></p>
+    </div>
+
+    <div class="card-footer">
+      <p>This is a computer-generated result card. | Doel Public School &copy; 2026</p>
+    </div>
+
+  </div>
+</body>
+</html>
